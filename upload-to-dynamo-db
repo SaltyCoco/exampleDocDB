@@ -1,0 +1,30 @@
+import boto3
+import pandas as pd
+from fileMGNT.fileMGNT import xChr
+from analytics.denials.revDenials import *
+
+# This would upload the data to the dyanmoDB in aws.  The table, called document for unstructured, 
+# has four columns 
+
+#aws
+def awsDdb_capp():
+    try:
+        pitch = 10 #pass variable
+        yaw = 15 # pass variable
+        x = 5 # pass variable
+        y = 13 # pass variable
+        
+        sesh = boto3.Session()
+        dynamodb = sesh.resource('dynamodb', region_name="us-east-2")
+        table = dynamodb.Table('capp')
+        table.put_item(
+            Item={
+                "pitch": pitch,
+                "yaw": yaw,
+                "x": y,
+                "y": y
+            }
+        )
+        print("Successfuly updated capp: " + str(dt))
+    except Exception as e:
+        print("Failed to update capp aws table, with error: " + e)

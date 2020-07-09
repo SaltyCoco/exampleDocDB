@@ -1,0 +1,17 @@
+import pymongo
+import json
+from pymongo import MongoClient as mc
+
+def cpbUL():
+    crdm = # config file or env variables with your creds
+    # use this if you are using their hosted dbs
+    mcs = "mongodb+srv://" + line + "@<name of your mongodb>.mongodb.net/<name of table>"
+    c = mc(mcs)
+    # use this if it's a local db
+    # c = mc(host="localhost", port=27017)
+    dbh = c["<account>"]
+
+    user_doc = ({"pitch": pitch-insert, "yaw": yaw-insert})
+
+    dbh.pb_test.insert(user_doc)
+    print("Successfully inserted document: %s" % user_doc)
